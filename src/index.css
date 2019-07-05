@@ -1,13 +1,100 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 14px "Century Gothic", Futura, sans-serif;
+    margin: 0;
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+ol, ul {
+    padding-left: 30px;
+}
+.game-board {
+    box-shadow: -5px -2px 12px 5px #ffd91dcf;
+}
+.board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.status {
+    margin-bottom: 10px;
+}
+
+.square {
+    opacity: 0.75;
+    border: 2px solid rgba(116, 200, 174, 0.4);
+    float: left;
+    color: #8da0fa;
+    font-size: 130px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 200px;
+    margin-right: -2px;
+    margin-top: -2px;
+    max-height: 20vmin;
+    max-width: 20vmin;
+    padding: 0;
+    text-align: center;
+    text-shadow: -8px -3px 6px #18d5ee;
+    width: 200px;
+    background: linear-gradient(180deg, #ff9900 0%, #f9d423 100%);
+    cursor: default;
+}
+.square:not([disabled]):active {
+    transform: translate(2px,2px);
+}
+.square:not([disabled]):hover {
+    cursor: pointer;
+    opacity: .65;
+}
+.square.filled-o {
+    background: linear-gradient(to right, #ee9ca7, #ffdde1);
+}
+.square.filled-x {
+    background: linear-gradient(to right, #0eb8aa, #38ef7d);
+    color: #fa8d8d;;
+}
+.square.win {
+    background: linear-gradient(45deg, #ff5b52 0%, #b43c00 100%);
+    opacity: 1;
+}
+@media (max-width: 1000px) {
+    .square {
+        font-size: 13.15vmin;
+    }
+}
+.square:focus {
+    outline: none;
+    opacity: .5;
+}
+
+.kbd-navigation .square:focus {
+    background: #ddd;
+}
+
+.game {
+    display: flex;
+    flex-direction: row;
+}
+
+.game-info {
+    width: 150px;
+    margin-left: 20px;
+}
+.button {
+    background: linear-gradient(-90deg, #ff9900 0%, #ffd300 100%);    border-radius: 4px;
+    border: 0;
+    color: #fff;
+    font-weight: bold;
+    padding: 4px 10px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    margin-bottom: 4px;
+    cursor: pointer;
+}
+.button:active {
+    box-shadow: inset 2px 1px 8px rgba(0, 0, 0, 0.5);
 }
