@@ -43,6 +43,7 @@ ol, ul {
     width: 200px;
     background: linear-gradient(180deg, #ff9900 0%, #f9d423 100%);
     cursor: default;
+    will-change: box-shadow;
 }
 .square:not([disabled]):active {
     transform: translate(2px,2px);
@@ -62,7 +63,7 @@ ol, ul {
     background: linear-gradient(45deg, #ff5b52 0%, #b43c00 100%);
     opacity: 1;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1000px) , (max-height: 500px) {
     .square {
         font-size: 13.15vmin;
     }
@@ -82,7 +83,8 @@ ol, ul {
 }
 
 .game-info {
-    width: 150px;
+    width: 33%;
+    max-width: 150px;
     margin-left: 20px;
 }
 .button {
@@ -95,6 +97,36 @@ ol, ul {
     margin-bottom: 4px;
     cursor: pointer;
 }
+.button.toggled {
+    background-image: linear-gradient(180deg, rgb(3, 207, 227), rgb(162, 75, 255))
+}
 .button:active {
     box-shadow: inset 2px 1px 8px rgba(0, 0, 0, 0.5);
+}
+.sort {
+    font-weight: bold;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    margin: 8px 20px;
+}
+.draw {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    font-size: 72px;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0 0 2px #fff,
+    -1px -1px 0 hsl(80, 70%, 35%),
+    -2px -2px 1px hsl(80, 70%, 35%),
+    -2px -2px 2px hsl(80, 10%, 15%),
+    -2px -2px 0 hsl(60, 80%, 95%),
+    -3px -3px 0 hsl(60, 10%, 65%),
+    -4px -4px 0 hsl(60, 10%, 65%),
+    -5px -5px 0 hsl(60, 10%, 65%),
+    -6px -6px 0 hsl(60, 10%, 65%),
+    -7px -7px 4px hsl(60, 10%, 40%),
+    -8px -8px 6px hsl(60, 10%, 55%);
 }
